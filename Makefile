@@ -6,7 +6,7 @@
 #    By: esusseli <esusseli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/17 13:58:47 by esusseli          #+#    #+#              #
-#    Updated: 2015/09/17 15:39:23 by esusseli         ###   ########.fr        #
+#    Updated: 2015/10/01 16:03:41 by esusseli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,17 +14,18 @@ NAME = fractol
 CXX = clang
 CXXFLAGS = -Wall -Wextra -Werror
 LDFLAGS = -rdynamic
-LDLIBS = -lft
-SUBDIRS = libft
+LDLIBS = -lft -lmlx -framework OpenGL -framework AppKit
+LIBDIRS = $(SUBDIRS) 
+SUBDIRS = libft minilibx
 SRCS = main.c
-INCS = fractol.h
+INCS = fractol.h mlx.h
 SRCDIR = src
-INCDIR = include
+INCDIR = include minilibx
 OBJDIR = obj
 VPATH := $(INCDIR) $(addsuffix /$(INCDIR),$(SUBDIRS))
 OBJS := $(patsubst %.c,$(OBJDIR)/%.o,$(SRCS))
 CPPFLAGS := $(addprefix -I,$(VPATH))
-LDFLAGS := $(addprefix -L,$(SUBDIRS))
+LDFLAGS := $(addprefix -L,$(LIBDIRS))
 
 all: $(SUBDIRS) $(NAME)
 
@@ -32,6 +33,7 @@ $(SUBDIRS):
 	@$(MAKE) -C $@
 
 $(NAME): $(OBJS)
+	make -C minilibx/
 	$(CXX) $(LDFLAGS) $(OUTPUT_OPTION) $^ $(LDLIBS)
 
 $(OBJS): Makefile | $(OBJDIR)
