@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_struct.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esusseli <esusseli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/17 14:09:23 by esusseli          #+#    #+#             */
-/*   Updated: 2015/10/01 18:18:40 by esusseli         ###   ########.fr       */
+/*   Created: 2015/10/01 18:16:10 by esusseli          #+#    #+#             */
+/*   Updated: 2015/10/01 18:24:56 by esusseli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_STRUCT_H
+# define FRACTOL_STRUCT_H
 
-# include "libft.h"
-# include "fractol_struct.h"
+typedef struct	s_env
+{
+	void		*mlx;
+	void		*win;
+}				t_env;
 
 #endif

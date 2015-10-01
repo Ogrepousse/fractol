@@ -6,7 +6,7 @@
 /*   By: esusseli <esusseli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/17 13:59:31 by esusseli          #+#    #+#             */
-/*   Updated: 2015/10/01 15:30:51 by esusseli         ###   ########.fr       */
+/*   Updated: 2015/10/01 18:25:13 by esusseli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 
 int		main(void)
 {
-	void	*mlx;
-	void	*win;
-	write(1, "lol\n", 4);
-	ft_putstr("lol\n");
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 200, 200, "lol");
+	t_env	e;
+	if (!(e.mlx = mlx_init())
+		|| !(e.win = mlx_new_window(e.mlx, 500, 500, "fractol")))
+	{
+		ft_putendl_fd("fractol: init error", 2);
+		return (1);
+	}
 	while (1) ;
 	return (0);
 }
