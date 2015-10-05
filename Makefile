@@ -6,7 +6,7 @@
 #    By: esusseli <esusseli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/17 13:58:47 by esusseli          #+#    #+#              #
-#    Updated: 2015/10/01 16:03:41 by esusseli         ###   ########.fr        #
+#    Updated: 2015/10/05 15:20:14 by esusseli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LDFLAGS = -rdynamic
 LDLIBS = -lft -lmlx -framework OpenGL -framework AppKit
 LIBDIRS = $(SUBDIRS) 
 SUBDIRS = libft minilibx
-SRCS = main.c
+SRCS = main.c hook.c
 INCS = fractol.h mlx.h
 SRCDIR = src
 INCDIR = include minilibx

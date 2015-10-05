@@ -6,7 +6,7 @@
 /*   By: esusseli <esusseli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/17 13:59:31 by esusseli          #+#    #+#             */
-/*   Updated: 2015/10/01 18:25:13 by esusseli         ###   ########.fr       */
+/*   Updated: 2015/10/05 15:17:15 by esusseli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ int		main(void)
 		ft_putendl_fd("fractol: init error", 2);
 		return (1);
 	}
-	while (1) ;
+
+	mlx_pixel_put(e.mlx, e.win, 250, 250, 0xffffff);
+
+//	mlx_expose_hook(e.win, &expose_hook, &e);
+	mlx_key_hook(e.win, &key_hook, &e);
+	mlx_loop(e.mlx);
 	return (0);
 }
