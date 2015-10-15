@@ -6,7 +6,7 @@
 /*   By: esusseli <esusseli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/17 13:59:31 by esusseli          #+#    #+#             */
-/*   Updated: 2015/10/05 16:22:28 by esusseli         ###   ########.fr       */
+/*   Updated: 2015/10/15 17:22:22 by esusseli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,18 @@ int		main(void)
 {
 	t_env	e;
 	if (!(e.mlx = mlx_init())
-		|| !(e.win = mlx_new_window(e.mlx, 500, 500, "fractol")))
+		|| !(e.win = mlx_new_window(e.mlx, 500, 500, "fractol"))
+		|| !(e.img = )
 	{
 		ft_putendl_fd("fractol: init error", 2);
 		return (1);
 	}
 
-	for (int i = 0; i < 1000; i++)
-	{
-		fill_test(&e, 0xffffff);
-	//	sleep(1);
-	}
+//	for (int i = 0; i < 1000; i++)
+//	{
+//		fill_test(&e, 0xffffff);
+//	//	sleep(1);
+//	}
 
 	mlx_expose_hook(e.win, &expose_hook, &e);
 	mlx_key_hook(e.win, &key_hook, &e);
