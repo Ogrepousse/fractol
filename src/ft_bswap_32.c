@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_struct.h                                   :+:      :+:    :+:   */
+/*   ftbswap_32.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esusseli <esusseli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/01 18:16:10 by esusseli          #+#    #+#             */
-/*   Updated: 2015/10/22 14:39:54 by esusseli         ###   ########.fr       */
+/*   Created: 2015/10/22 14:02:07 by esusseli          #+#    #+#             */
+/*   Updated: 2015/10/22 14:04:26 by esusseli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_STRUCT_H
-# define FRACTOL_STRUCT_H
+#include "fractol.h"
 
-typedef struct	s_img
+unsigned	ft_bswap_32(unsigned x)
 {
-	void		*ptr;
-	int			width;
-	int			endian;
-	int			height;
-	void		*mlx_ptr;
-	int			size_line;
-	char		*data_addr;
-	int			bytes_per_pixel;
-}				t_img;
+	unsigned	v;
 
-typedef struct	s_env
-{
-	void		*mlx;
-	void		*win;
-	t_img		*img;
-	int			lol;
-}				t_env;
-
-#endif
+	v = x << 24;
+	v |=(x & 0xff00) << 8;
+	v |= (x >> 8) & 0xff00;
+	v |= x >> 24;
+	return (v);
+}

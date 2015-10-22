@@ -6,18 +6,19 @@
 #    By: esusseli <esusseli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/09/17 13:58:47 by esusseli          #+#    #+#              #
-#    Updated: 2015/10/05 15:20:14 by esusseli         ###   ########.fr        #
+#    Updated: 2015/10/22 14:25:54 by esusseli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 CXX = clang
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -g3
 LDFLAGS = -rdynamic
 LDLIBS = -lft -lmlx -framework OpenGL -framework AppKit
 LIBDIRS = $(SUBDIRS) 
 SUBDIRS = libft minilibx
-SRCS = main.c hook.c
+SRCS = main.c hook.c ft_image_color.c ft_image_create.c ft_image_destroy.c \
+	ft_image_pixel_put.c ft_bswap_32.c
 INCS = fractol.h mlx.h
 SRCDIR = src
 INCDIR = include minilibx

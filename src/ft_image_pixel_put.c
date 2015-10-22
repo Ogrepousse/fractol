@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_struct.h                                   :+:      :+:    :+:   */
+/*   ft_image_pixel_put.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esusseli <esusseli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/01 18:16:10 by esusseli          #+#    #+#             */
-/*   Updated: 2015/10/22 14:39:54 by esusseli         ###   ########.fr       */
+/*   Created: 2015/10/22 13:53:54 by esusseli          #+#    #+#             */
+/*   Updated: 2015/10/22 13:57:20 by esusseli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_STRUCT_H
-# define FRACTOL_STRUCT_H
+#include "fractol.h"
+#include <mlx.h>
 
-typedef struct	s_img
+void	ft_image_pixel_put(t_img *img, int x, int y, unsigned color_value)
 {
-	void		*ptr;
-	int			width;
-	int			endian;
-	int			height;
-	void		*mlx_ptr;
-	int			size_line;
-	char		*data_addr;
-	int			bytes_per_pixel;
-}				t_img;
-
-typedef struct	s_env
-{
-	void		*mlx;
-	void		*win;
-	t_img		*img;
-	int			lol;
-}				t_env;
-
-#endif
+	ft_memcpy(img->data_addr + x * img->bytes_per_pixel + y * img->size_line,
+		&color_value, img->bytes_per_pixel);
+}
