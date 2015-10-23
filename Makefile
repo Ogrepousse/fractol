@@ -14,9 +14,15 @@ NAME = fractol
 CXX = clang
 CXXFLAGS = -Wall -Wextra -Werror -g3
 LDFLAGS = -rdynamic
-LDLIBS = -lft -lmlx -framework OpenGL -framework AppKit
+
+ifeq ($(shell uname),Darwin)
+	LDLIBS = -lft -lmlx -framework OpenGL -framework AppKit -lm
+else
+	LDLIBS = -lft -lmlx -lXext -lX11 -lm -lbsd
+endif
+
 LIBDIRS = $(SUBDIRS) 
-SUBDIRS = libft minilibx
+SUBDIRS = libft
 SRCS = main.c hook.c ft_image_color.c ft_image_create.c ft_image_destroy.c \
 	ft_image_pixel_put.c ft_bswap_32.c
 INCS = fractol.h mlx.h
@@ -34,7 +40,6 @@ $(SUBDIRS):
 	@$(MAKE) -C $@
 
 $(NAME): $(OBJS)
-	make -C minilibx/
 	$(CXX) $(LDFLAGS) $(OUTPUT_OPTION) $^ $(LDLIBS)
 
 $(OBJS): Makefile | $(OBJDIR)
