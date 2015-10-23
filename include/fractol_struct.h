@@ -31,6 +31,9 @@ typedef struct	s_env
 	void		*win;
 	t_img		*img;
 	int			lol;
+	float		xo;
+	float		yo;
+	int			iter;
 }				t_env;
 
 #endif

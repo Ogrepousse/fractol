@@ -33,6 +33,9 @@ int		main(void)
 	t_env	e;
 
 	e.lol = 0xffffff;
+	e.xo = 0;
+	e.yo = 0;
+	e.iter = 1;
 	if (!(e.mlx = mlx_init())
 		|| !(e.win = mlx_new_window(e.mlx, 500, 500, "fractol"))
 		|| !(e.img = ft_image_create(e.mlx, 500, 500)))
@@ -40,6 +43,7 @@ int		main(void)
 		ft_putendl_fd("fractol: init error", 2);
 		return (1);
 	}
+	run_pixel(&e);
 
 	mlx_loop_hook(e.mlx, &loop_hook, &e);
 	mlx_expose_hook(e.win, &expose_hook, &e);

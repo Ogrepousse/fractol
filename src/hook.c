@@ -29,10 +29,8 @@ void	fill_test(t_env *e, int color)
 
 int		loop_hook(t_env *e)
 {
-	fill_test(e, e->lol);
-	e->lol -= 100;
-	if (e->lol < 0)
-		e->lol = 0xffffff;
+	run_pixel(e);
+	e->iter++;
 	mlx_put_image_to_window(e->mlx, e->win, e->img->ptr, 0, 0);
 	sleep(1);
 	return (0);

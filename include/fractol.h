@@ -27,4 +27,6 @@ unsigned	ft_image_color(const t_img *img, int color);
 void		ft_image_pixel_put(t_img *img, int x, int y, unsigned color_value);
 unsigned	ft_bswap_32(unsigned x);
 
+void		run_pixel(t_env *e);
+
 #endif
