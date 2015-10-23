@@ -30,11 +30,11 @@ void	fill_test(t_env *e, int color)
 int		loop_hook(t_env *e)
 {
 	fill_test(e, e->lol);
-//	e->lol -= 100;
-//	if (e->lol < 0)
-//		e->lol = 0xffffff;
-//	mlx_put_image_to_window(e->mlx, e->win, e->img->ptr, 0, 0);
-//	sleep(1);
+	e->lol -= 100;
+	if (e->lol < 0)
+		e->lol = 0xffffff;
+	mlx_put_image_to_window(e->mlx, e->win, e->img->ptr, 0, 0);
+	sleep(1);
 	return (0);
 }
 
@@ -46,7 +46,7 @@ int		expose_hook(t_env *e)
 
 int		key_hook(int keycode, t_env *e)
 {
-	if (keycode == 53)
+	if (keycode == MLXK_ESCAPE)
 	{
 		ft_image_destroy(&e->img);
 		exit(0);

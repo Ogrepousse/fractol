@@ -41,7 +41,7 @@ int		main(void)
 		return (1);
 	}
 
-	mlx_loop_hook(e.win, &loop_hook, &e);
+	mlx_loop_hook(e.mlx, &loop_hook, &e);
 	mlx_expose_hook(e.win, &expose_hook, &e);
 	mlx_key_hook(e.win, &key_hook, &e);
 	mlx_loop(e.mlx);

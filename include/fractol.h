@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include "fractol_struct.h"
+# include "fractol_cdef.h"
 
 int			expose_hook(t_env *e);
 int			key_hook(int keycode, t_env *e);
