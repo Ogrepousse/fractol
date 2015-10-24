@@ -52,3 +52,10 @@ int		key_hook(int keycode, t_env *e)
 	}
 	return (0);
 }
+
+int		mouse_hook(int button, int x, int y, t_env *e)
+{
+	(void)e;
+	printf("lol %d %d %d\n", button, x, y);
+	return (0);
+}

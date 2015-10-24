@@ -20,6 +20,7 @@
 int			expose_hook(t_env *e);
 int			key_hook(int keycode, t_env *e);
 int			loop_hook(t_env *e);
+int			mouse_hook(int button, int x, int y, t_env *e);
 
 t_img		*ft_image_create(void *mlx_ptr, int width, int height);
 void		ft_image_destroy(t_img **img);
