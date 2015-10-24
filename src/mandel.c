@@ -1,6 +1,8 @@
 #include "fractol.h"
 #include <math.h>
 
+#include <stdio.h>
+
 /*float	val_abs(float z1, float z2)
 {
 	
@@ -16,26 +18,27 @@ void	mandel_iter(t_env *e, float z1, float z2, int i, int j)
 	float	res;
 	int		color;
 
-	n = e->iter;
+	n = 0;
 	a = z1;
 	b = z2;
-	while (n > 0)
+	while (n < e->iter)
 	{
 		tmp1 = a;
 		tmp2 = b;
 		a = tmp1 * tmp1 - tmp2 * tmp2 + z1;
 		b = 2 * tmp1 * tmp2 + z2;
-		n--;
+		if ((res = a * a + b * b) > 4)
+			break ;
+		n++;
 	}
-	res = sqrt(a * a + b * b);
-	if (res < 100)
-		color = res * 0xffffff / 100;
-	else
+//	printf("%d %f\n", n, res);
+	if (n < e->iter)
+		color = n * 0xffffff / e->iter;
+	else if (n == e->iter && res > 4)
 		color = 0xffffff;
-	if (res > 2)
-		ft_image_pixel_put(e->img, i, j, ft_image_color(e->img, color));
 	else
-		ft_image_pixel_put(e->img, i, j, ft_image_color(e->img, 0));
+		color = 0;
+	ft_image_pixel_put(e->img, i, j, ft_image_color(e->img, color));
 }
 
 void	run_pixel(t_env *e)
