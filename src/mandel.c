@@ -52,7 +52,7 @@ void	run_pixel(t_env *e)
 		j = 0;
 		while (j < e->img->height)
 		{
-			mandel_iter(e, (float)((i - e->img->width / 2) * 5) / e->img->width, (float)((j - e->img->height / 2) * 5) / e->img->height, i, j);
+			mandel_iter(e, (float)((i - e->img->width / 2) * e->pX) / e->img->width + e->xo, (float)((j - e->img->height / 2) * e->pY) / e->img->height + e->yo, i, j);
 			j++;
 		}
 		i++;

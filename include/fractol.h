@@ -30,4 +30,6 @@ unsigned	ft_bswap_32(unsigned x);
 
 void		run_pixel(t_env *e);
 
+void		quit(t_env *e);
+
 #endif

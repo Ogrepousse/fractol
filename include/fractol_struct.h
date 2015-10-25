@@ -34,6 +34,18 @@ typedef struct	s_env
 	float		xo;
 	float		yo;
 	int			iter;
+	float		mX;
+	float		pX;
+	float		mY;
+	float		pY;
 }				t_env;
+
+typedef void	(*t_hook)(t_env *e);
+
+typedef struct	s_key
+{
+	int			code;
+	t_hook		hook;
+}				t_key;
 
 #endif

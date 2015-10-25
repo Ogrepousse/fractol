@@ -23,7 +23,7 @@ endif
 
 LIBDIRS = $(SUBDIRS) 
 SUBDIRS = libft
-SRCS = main.c hook.c ft_image_color.c ft_image_create.c ft_image_destroy.c mandel.c\
+SRCS = main.c hook.c ft_image_color.c ft_image_create.c ft_image_destroy.c mandel.c key.c\
 	ft_image_pixel_put.c ft_bswap_32.c
 INCS = fractol.h mlx.h
 SRCDIR = src

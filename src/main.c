@@ -33,9 +33,11 @@ int		main(void)
 	t_env	e;
 
 	e.lol = 0xffffff;
-	e.xo = 0;
-	e.yo = 0;
-	e.iter = 1;
+	e.xo = -0.03;
+	e.yo = 0.7;
+	e.iter = 100;
+	e.pX = 5;
+	e.pY = 5;
 	if (!(e.mlx = mlx_init())
 		|| !(e.win = mlx_new_window(e.mlx, 500, 500, "fractol"))
 		|| !(e.img = ft_image_create(e.mlx, 500, 500)))
@@ -45,7 +47,7 @@ int		main(void)
 	}
 	run_pixel(&e);
 
-	mlx_loop_hook(e.mlx, &loop_hook, &e);
+//	mlx_loop_hook(e.mlx, &loop_hook, &e);
 	mlx_expose_hook(e.win, &expose_hook, &e);
 	mlx_key_hook(e.win, &key_hook, &e);
 	mlx_mouse_hook(e.win, &mouse_hook, &e);
